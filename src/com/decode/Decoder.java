@@ -169,6 +169,16 @@ public class Decoder
         RegisterDictionary registerDictionary = new RegisterDictionary();
         registerDictionary.setValues();
 
+        // Instead of below
+        //int N = (int)Long.parseLong("10110011001100111111001111111100", 2);
+        //System.out.println(Integer.toBinaryString(N));
+        // Example for jump instruction shift
+        int test = (int)Long.parseLong("0100000000000000000100", 2); // First 6 characters have been removed for op code
+        System.out.println(Integer.toBinaryString(test)); // Output binary
+        test = test << 2; // Perform shift
+        System.out.println(Integer.toHexString(test)); //Output hex
+
+
         // Get op from first 6 bits (0 - 6)
         String firstSixBits = binaryCode.substring(0, Math.min(binaryCode.length(), 6));
         String op = iTypeDictionary.getOp(firstSixBits);
